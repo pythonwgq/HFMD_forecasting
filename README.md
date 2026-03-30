@@ -33,6 +33,7 @@ python predict_with_model.py --data ./your_data.csv --months 6 --window 3
 1.你的数据需放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
 2.调整各个模型的参数，参数配置文件在config/config.yaml。
 3.模型训练主文件在experiments/train.py:
+
 ```
 cd experiments
 python train.py
