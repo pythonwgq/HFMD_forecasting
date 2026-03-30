@@ -63,7 +63,7 @@ date,        rate
    | --window	| 滑动窗口大小,基于未来几个月预测下一个月 |	3 |
    | --output	| 预测结果保存路径	| ./predictions.csv |
    | --no_eval	| 跳过模型评估 |False |
-3. 运行predict_with_model.py，开始调用模型并执行预测，模型性能评估和预测结果会可视化输出，并将结果文件保存至use_model目录下。
+3.  运行predict_with_model.py，开始调用模型并执行预测，模型性能评估和预测结果会可视化输出，并将结果文件保存至use_model目录下。
 ```
 cd ../use_model
 python predict_with_model.py --data ./your_data.csv --months 6 --window 3
@@ -72,17 +72,17 @@ python predict_with_model.py --data ./your_data.csv --months 6 --window 3
 ---
 
 ### 可以用你的数据，进行新的模型训练
-1.你的数据需放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
-2.调整各个模型的参数，参数配置文件在config/config.yaml。
-3.模型训练主文件在experiments/train.py:
+1. 你的数据需放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
+2. 调整各个模型的参数，参数配置文件在config/config.yaml。
+3. 模型训练主文件在experiments/train.py:
 
 ```
 cd experiments
 python train.py
 ```
-4.训练结果将保存至results目录下，模型保存至saved_model目录下。
-5.第一次训练会保存增强的数据至data/processed目录下（pkl格式），后续训练调用该数据。如果该增强数据质量不高，将文件删除，重新训练即可重新执行增强策略。
-6.运行experiments/cross_validation.py执行跨区域验证，目标区域的文件同样需要放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
+4. 训练结果将保存至results目录下，模型保存至saved_model目录下。
+5. 第一次训练会保存增强的数据至data/processed目录下（pkl格式），后续训练调用该数据。如果该增强数据质量不高，将文件删除，重新训练即可重新执行增强策略。
+6. 运行experiments/cross_validation.py执行跨区域验证，目标区域的文件同样需要放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
 ## 论文信息
 
 > 韦国清，李存仙，段云权等. 数据增强下短时序手足口病预测的多模型比较与跨区域验证[J]. 杂志，日期（审稿中）.
