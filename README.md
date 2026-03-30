@@ -19,7 +19,7 @@
 │   │   ├── loader.py            # 数据加载
 │   │   ├── processor.py         # 数据预处理
 │   │   ├── augmenter.py         # 数据增强
-│   │   └── features.py          # 特征工程
+│   │   └── enhanced_features.py  # 特征工程
 │   ├── models/                  # 模型实现
 │   │   ├── base.py              # 模型基类
 │   │   ├── arima.py
@@ -34,12 +34,13 @@
 │   └── visualization/           # 可视化
 │       └── plotter.py
 ├── experiments/                 # 实验脚本
-│   ├── train.py                 # 云南模型训练
+│   ├── train.py                 # 模型训练
 │   └── cross_validation.py      # 跨省验证
 ├── saved_models/                # 保存的模型
 │   └── best_model_LightGBM.pkl  # 最优模型（LightGBM）
 ├── use_model/                   # 预测工具
 │   └── predict_with_model.py    # 独立预测脚本
+    └── data.csv                 #目标区域数据
 ├── requirements.txt             # 依赖包
 └── README.md                    # 本文件
 ```
