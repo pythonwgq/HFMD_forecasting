@@ -13,12 +13,12 @@ date,        rate
 2. 调用模型代码文件在use_model/predict_with_model.py，有几个参数需要修改和确定：
    |参数 |	说明 |	默认值 |
    |-----| ----- | ------|
-| --data	| 本地数据文件路径	| ./data.csv |
-| --model	 | 模型路径	 | ../saved_models/best_model_LightGBM.pkl |
-| --months	| 预测月数（1-12）|	6 |
-| --window	| 滑动窗口大小,基于未来几个月预测下一个月 |	3 |
-| --output	| 预测结果保存路径	| ./predictions.csv |
-| --no_eval	| 跳过模型评估 |	False |
+   | --data	| 本地数据文件路径	| ./data.csv |
+   | --model	 | 模型路径	 | ../saved_models/best_model_LightGBM.pkl |
+   | --months	| 预测月数（1-12）|	6 |
+   | --window	| 滑动窗口大小,基于未来几个月预测下一个月 |	3 |
+   | --output	| 预测结果保存路径	| ./predictions.csv |
+   | --no_eval	| 跳过模型评估 |False |
 3. 运行predict_with_model.py，开始调用模型并执行预测。
 ```
 cd ../use_model
