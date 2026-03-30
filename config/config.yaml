@@ -1,0 +1,92 @@
+# 全局配置
+random_seed: 42 #随机种子
+test_ratio: 0.2 #测试集划分比例
+val_ratio: 0.1  #验证机划分比例
+window_size: 3  #滑动窗口
+output_steps: 1 #每一次预测步长
+
+# 数据目录
+data:
+  yunnan: "../data/raw/yunnan_data.csv"
+  guangdong: "../data/raw/guangdong_data.csv"
+  shandong: "../data/raw/shandong_data.csv"
+  beijing: "../data/raw/beijing_data.csv"
+  exclude_years: [2020, 2021, 2022]  # 剔除疫情年份
+
+# 数据增强配置
+augmentation:
+  enabled: false  #是否采用数据增强
+  n_sequences: 5000      # 最大尝试次数
+  m_sequences: 100     # 目标增强段数，100段约50倍。
+  similarity_threshold: 0.85
+  original_repeat: 2     # 原始数据加入比例
+  cache_path: "../data/processed/yunnan_enhanced_cache.pkl"  # 新增缓存路径
+  augmenters:
+    time_warp:
+      n_speed_change: 3
+      max_speed_ratio: 1.03
+    quantize:
+      n_levels: 30
+    drift:
+      max_drift: 0.03
+      n_drift_points: 2
+    noise:
+      scale: 0.002
+
+# 模型配置
+models:
+  arima:
+    enabled: false #是否启用该模型
+    order_search: true  # 自动搜索阶数
+
+  prophet:
+    enabled: false #是否启用该模型
+    yearly_seasonality: true
+    weekly_seasonality: false
+    daily_seasonality: false
+    best_changepoint_prior_scale: 0.25
+    best_seasonality_prior_scale: 53
+
+  lstm:
+    enabled: false #是否启用该模型
+    units: 32
+    dropout: 0.3
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+
+  cnn_bilstm:
+    enabled: false #是否启用该模型
+    cnn_filters: 32
+    cnn_kernel_size: 3
+    cnn_dilation_rate: 1
+    lstm_units: 32
+    bidirectional: true
+    dropout: 0.3
+    epochs: 100
+    batch_size: 16
+    learning_rate: 0.001
+    random_seed: 42
+    verbose: 1
+
+  lightgbm:
+    enabled: ture #是否启用该模型
+    n_estimators: 500
+    max_depth: 6
+    learning_rate: 0.1
+    num_leaves: 31
+    reg_alpha: 0.1
+    reg_lambda: 0.1
+    min_child_samples: 10
+    subsample: 0.8
+    colsample_bytree: 0.8
+    window_size: 3
+
+  nbeats:
+    enabled: false #是否启用该模型
+    hidden_dim: 32
+    num_blocks: 3
+    dropout: 0.15
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.0005
