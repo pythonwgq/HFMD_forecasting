@@ -76,9 +76,9 @@ python predict_with_model.py --data ./your_data.csv --months 6 --window 3
 
 ### 可以用你的数据，进行新的模型训练
 
-1.你的数据需放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
-2.调整各个模型的参数，参数配置文件在config/config.yaml。
-3.模型训练主文件在experiments/train.py:
+1. 你的数据需放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
+2. 调整各个模型的参数，参数配置文件在config/config.yaml。
+3. 模型训练主文件在experiments/train.py:
 
 ```
 cd experiments
