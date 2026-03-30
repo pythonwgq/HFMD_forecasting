@@ -1,6 +1,7 @@
 # HFMD_forecasting
 本项目针对短时序手足口病发病率预测中数据稀缺、模型评估不严谨等问题，系统比较了6种主流预测模型，提出基于数据增强的LightGBM预测方法，并实现了跨区域泛化验证。项目提供了完整的训练代码、预训练模型及轻量级预测API，可直接使用。
 ## 项目结构
+```
 HFMD_Prediction/
 ├── config/                      # 配置文件
 │   └── config.yaml              # 模型参数、数据路径等配置
@@ -39,3 +40,4 @@ HFMD_Prediction/
 │   └── predict_with_model.py    # 独立预测脚本
 ├── requirements.txt             # 依赖包
 └── README.md                    # 本文件
+```
