@@ -1,4 +1,4 @@
-# HFMD_forecasting
+# HFMD_long-term-forecasting
 本项目针对短时序手足口病发病率预测中数据稀缺、模型评估不严谨等问题，系统比较了6种主流预测模型，探讨了基于[TSAUG框架](https://tsaug.readthedocs.io/en/stable/)数据增强的LightGBM预测方法，并实现了跨区域泛化验证。项目提供了完整的训练代码、预训练模型及轻量级预测API，可直接使用。
 
 ---
@@ -31,6 +31,8 @@
 │   ├── evaluation/              # 评估模块
 │   │   ├── metrics.py           # 评估指标
 │   │   └── comparison.py        # 模型对比
+        └── Diebold_Mariano.py    #DM检验
+        └── Long_term_text.py   #长期预测性能评估
 │   └── visualization/           # 可视化
 │       └── plotter.py
 ├── experiments/                 # 实验脚本
@@ -90,6 +92,9 @@ python train.py
 4. 训练结果将保存至results目录下，模型保存至saved_model目录下。
 5. 第一次训练会保存增强的数据至data/processed目录下（pkl格式），后续训练调用该数据。如果该增强数据质量不高，将文件删除，重新训练即可重新执行增强策略。
 6. 运行experiments/cross_validation.py执行跨区域验证，目标区域的文件同样需要放在data/raw目录下，文件类型需为csv格式，且列名需为"date"和"rate"。
+
+### 评估
+如果你需要DM检验和长期预测的评估，你需要单独调用src/evaluation/下的对应代码文件，且建议将你的源数据也放在该文件夹下。
 ## 论文信息
 
 > 韦国清，李存仙，段云权等. 数据增强下短时序手足口病预测的多模型比较与跨区域验证[J]. 杂志，日期（审稿中）.
